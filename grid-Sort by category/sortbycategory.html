@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CSS Grid</title>
+    <!-- reset.css -->
+    <link rel="stylesheet" href="./reset.css" />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/7756c67bd5.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="default.css" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Rubik+Vinyl&display=swap');
+
+      body {
+        font-family: 'Dongle', serif;
+        color: black;
+        font-size: 87.5%; /* 14px */
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 1rem;
+        max-width: 1000px;
+        margin: 0 auto;
+        background: white;
+      }
+
+      /* header */
+      .page-header {
+        grid-column: 1/5;
+        background-color: #c2d5f4;
+      }
+      .site-title {
+        font-size: 2rem;
+        padding: 2rem 2rem;
+      }
+
+      /* control button */
+      .sort-label {
+        grid-column: 1/5;
+      }
+      input[name='sort-control'] {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+      }
+      .sort-label {
+        padding: 1rem;
+        cursor: pointer;
+      }
+
+      /* post */
+      .cate-sect {
+        background: #fffaec;
+      }
+      .cate-sect-cont,
+      .cate-sect-title {
+        padding: 1rem;
+      }
+      .cate-name {
+        padding: 1rem;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+      .cate-music .cate-name {
+        background: #c9ffc7;
+      }
+      .cate-game .cate-name {
+        background: #ffdef5;
+      }
+      .cate-food .cate-name {
+        background: #ffffb7;
+      }
+      .cate-tech .cate-name {
+        background: #ddfeff;
+      }
+
+      :checked + .sort-label {
+        color: white;
+      }
+      #radio-sort-category:checked ~ .cate-music {
+        grid-row: 4/5;
+      }
+      #radio-sort-category:checked ~ .cate-food {
+        grid-row: 5/6;
+      }
+      #radio-sort-category:checked ~ .cate-game {
+        grid-row: 6/7;
+      }
+      #radio-sort-category:checked ~ .cate-tech {
+        grid-row: 7/8;
+      }
+
+      /* footer */
+      .page-footer {
+        grid-column: 1/5;
+        padding: 1rem 0 3rem;
+        background-color: #c2d5f4;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <article class="grid-container">
+      <!-- Header -->
+      <header class="page-header">
+        <h1 class="site-title">카테고리 정렬하기!</h1>
+      </header>
+      <!-- sort button -->
+      <input
+        type="radio"
+        name="sort-control"
+        value="default"
+        id="radio-sort-default"
+      />
+      <label class="sort-label" for="radio-sort-default">기본</label>
+      <input
+        type="radio"
+        name="sort-control"
+        value="category"
+        id="radio-sort-category"
+      />
+      <label class="sort-label" for="radio-sort-category">정렬</label>
+
+      <!-- post 1.music 2.food 3.game 4.tech -->
+      <section class="cate-sect cate-music">
+        <header class="cate-sect-header">
+          <div class="cate-name">Music</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-food">
+        <header class="cate-sect-header">
+          <div class="cate-name">Food</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-game">
+        <header class="cate-sect-header">
+          <div class="cate-name">Game</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-tech">
+        <header class="cate-sect-header">
+          <div class="cate-name">Tech</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-music">
+        <header class="cate-sect-header">
+          <div class="cate-name">Music</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-game">
+        <header class="cate-sect-header">
+          <div class="cate-name">Game</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-food">
+        <header class="cate-sect-header">
+          <div class="cate-name">Food</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-music">
+        <header class="cate-sect-header">
+          <div class="cate-name">Music</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-tech">
+        <header class="cate-sect-header">
+          <div class="cate-name">Tech</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-food">
+        <header class="cate-sect-header">
+          <div class="cate-name">Food</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-music">
+        <header class="cate-sect-header">
+          <div class="cate-name">Music</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-game">
+        <header class="cate-sect-header">
+          <div class="cate-name">Game</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-tech">
+        <header class="cate-sect-header">
+          <div class="cate-name">Tech</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-game">
+        <header class="cate-sect-header">
+          <div class="cate-name">Game</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-food">
+        <header class="cate-sect-header">
+          <div class="cate-name">Food</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <section class="cate-sect cate-tech">
+        <header class="cate-sect-header">
+          <div class="cate-name">Tech</div>
+          <h2 class="cate-sect-title">Lorem, ipsum.</h2>
+        </header>
+        <p class="cate-sect-cont">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
+          quaerat quisquam magni aperiam minima quam, dicta sequi. Vel,
+          consectetur totam.
+        </p>
+      </section>
+
+      <footer class="page-footer">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem,
+        deserunt.
+      </footer>
+    </article>
+  </body>
+</html>
